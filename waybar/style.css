@@ -14,9 +14,9 @@
 * {
     border: none;
     font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "Font Awesome 6 Free", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     min-height: 0;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 window#waybar {
@@ -26,7 +26,6 @@ window#waybar {
     transition-duration: .5s;
 }
 
-/* Workspaces - убрано отображение названия активного окна */
 #workspaces {
     background-color: @background;
     border-radius: 15px;
@@ -45,13 +44,13 @@ window#waybar {
 #workspaces button.active {
     background-color: @focused-bg;
     color: @text-bright;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #workspaces button:hover {
     background: @hover-bg;
     color: @text-bright;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #workspaces button.urgent {
@@ -59,11 +58,10 @@ window#waybar {
     color: @text-bright;
 }
 
-/* Модули с индивидуальными цветами */
 #custom-launcher {
     background-color: @accent-green;
     color: @text-bright;
-    font-size: 16px;
+    font-size: 15px;
     padding: 0 12px;
     margin: 4px 2px;
     border-radius: 15px;
@@ -72,7 +70,6 @@ window#waybar {
 #clock {
     background-color: @focused-bg;
     color: @text-bright;
-    font-weight: bold;
     padding: 0 12px;
     margin: 4px 2px;
     border-radius: 15px;
@@ -90,25 +87,6 @@ window#waybar {
     background-color: @charging;
     color: @background;
 }
-
-/* Модули CPU и Memory закомментированы */
-/*
-#cpu {
-    background-color: @hover-bg;
-    color: @text-bright;
-    padding: 0 12px;
-    margin: 4px 2px;
-    border-radius: 15px;
-}
-
-#memory {
-    background-color: @muted;
-    color: @text-bright;
-    padding: 0 12px;
-    margin: 4px 2px;
-    border-radius: 15px;
-}
-*/
 
 #network {
     background-color: @accent-green;
@@ -178,7 +156,6 @@ tooltip label {
     color: @text-bright;
 }
 
-/* Стили для модуля hyprland/language */
 #language {
     color: @text-bright;
     background: @background;
@@ -188,17 +165,15 @@ tooltip label {
     font-family: "JetBrains Mono Nerd Font";
 }
 
-/* Стили при наведении */
 #language:hover {
     background: @module-bg;
     color: @text-primary;
 }
 
-/* Стили для кнопки блокировки - ТЕПЕРЬ КАК У custom-launcher */
 #custom-lock {
-    background-color: @accent-green; /* Такой же как у custom-launcher */
-    color: @text-bright; /* Такой же как у custom-launcher */
-    font-size: 16px;
+    background-color: @accent-green;
+    color: @text-bright;
+    font-size: 14px;
     padding: 0 12px;
     margin: 4px 2px;
     border-radius: 15px;
