@@ -1,0 +1,205 @@
+/* Dark theme colors for Waybar */
+@define-color background         #297C94;  /* основной фон */
+@define-color text-primary       #D3ECF2;  /* основной текст (яркий) */
+@define-color text-secondary     #B78DB9;  /* второстепенный текст */
+@define-color text-bright        #D3ECF2;  /* яркий текст */
+@define-color accent-green       #BB582E;  /* акцентный сине-зеленый */
+@define-color module-bg          #363B5D;  /* фон модулей */
+@define-color hover-bg           #674B60;  /* фон при наведении */
+@define-color focused-bg         #74B0C9;  /* фон активного workspace */
+@define-color charging           #AB2F64;  /* цвет зарядки батареи */
+@define-color critical           #CC676C;  /* критический цвет */
+@define-color muted              #4B4C4A;  /* заглушенный цвет */
+@define-color tooltip-border     #297C94;  /* граница тултипа */
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 15px;
+    min-height: 0;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text-primary;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Workspaces - убрано отображение названия активного окна */
+#workspaces {
+    background-color: @background;
+    border-radius: 15px;
+    border: 1px solid @muted;
+    margin: 4px 2px;
+}
+
+#workspaces button {
+    padding: 0 15px;
+    background: transparent;
+    color: @text-secondary;
+    border-bottom: 2px solid transparent;
+    margin: 3px;
+}
+
+#workspaces button.active {
+    background-color: @focused-bg;
+    color: @text-bright;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: @hover-bg;
+    color: @text-bright;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    background-color: @critical;
+    color: @text-bright;
+}
+
+/* Модули с индивидуальными цветами */
+#custom-launcher {
+    background-color: @accent-green;
+    color: @text-bright;
+    font-size: 16px;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#clock {
+    background-color: @focused-bg;
+    color: @text-bright;
+    font-weight: bold;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#battery {
+    background-color: @module-bg;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#battery.charging {
+    background-color: @charging;
+    color: @background;
+}
+
+/* Модули CPU и Memory закомментированы */
+/*
+#cpu {
+    background-color: @hover-bg;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#memory {
+    background-color: @muted;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+*/
+
+#network {
+    background-color: @accent-green;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#network.disconnected {
+    background-color: @critical;
+}
+
+#pulseaudio {
+    background-color: @accent-green;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+#pulseaudio.muted {
+    background-color: @critical;
+}
+
+#tray {
+    background-color: @background;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+    border: 1px solid @muted;
+}
+
+#idle_inhibitor {
+    background-color: @hover-bg;
+    color: @text-bright;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @text-bright;
+        color: @background;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: @critical;
+    color: @text-bright;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid @tooltip-border;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @text-bright;
+}
+
+/* Стили для модуля hyprland/language */
+#language {
+    color: @text-bright;
+    background: @background;
+    padding: 0 12px;
+    border-radius: 15px;
+    margin: 4px 2px;
+    font-family: "JetBrains Mono Nerd Font";
+}
+
+/* Стили при наведении */
+#language:hover {
+    background: @module-bg;
+    color: @text-primary;
+}
+
+/* Стили для кнопки блокировки - ТЕПЕРЬ КАК У custom-launcher */
+#custom-lock {
+    background-color: @accent-green; /* Такой же как у custom-launcher */
+    color: @text-bright; /* Такой же как у custom-launcher */
+    font-size: 16px;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}

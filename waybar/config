@@ -1,0 +1,94 @@
+{
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "layer": "top",
+  "position": "top",
+  "height": 15,
+  "spacing": 2,
+  "modules-left": ["custom/launcher", "pulseaudio", "custom/lock"],
+  "modules-center": ["hyprland/workspaces", "clock", "window/launcher"],
+  "modules-right": ["hyprland/language", "custom/audio-menu", "network", "battery", "tray"],
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip": false
+  },
+  
+  "custom/audio-menu": {
+    "format": "{}",
+    "interval": 30,
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
+  },
+  
+  "network": {
+    "format-wifi": "󱚵 {essid}",
+    "format-ethernet": "󰖩 {ifname}",
+    "format-disconnected": "󱚼 Offline",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+  
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 5
+  },
+  
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5
+  },
+
+  "hyprland/workspaces": {
+    "format": " {name}",
+    "on-click": "activate",
+    "active-color": "#4CAF50",
+    "inactive-color": "#388E3C"
+  },
+
+  "custom/launcher": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+
+  "hyprland/language": {
+	  "format": "󰌠 {short} {variant}",
+    "tooltip": false
+  },
+    "custom/lock": {
+      "format": "󰤆",
+      "tooltip": false,
+      "on-click": "python ~/.config/waybar/tk-power.py"
+  }
+}
