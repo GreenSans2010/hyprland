@@ -2,7 +2,7 @@ import tkinter as tk
 import os
 
 window = tk.Tk()
-window.geometry('109x185')
+window.geometry('99x163')
 window.wm_attributes('-type', 'dialog')
 
 def button_click_off():
@@ -54,8 +54,8 @@ button4 = tk.Button(
 )
 
 button1.place(x=0, y=0)
-button2.place(x=0, y=47)
-button3.place(x=0, y=94)
-button4.place(x=0, y=135)
+button2.place(x=0, y=40)
+button3.place(x=0, y=80)
+button4.place(x=0, y=120)
 
 window.mainloop()
